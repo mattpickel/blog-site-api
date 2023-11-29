@@ -5,11 +5,10 @@ const { v4: uuidv4 } = require('uuid');
 console.log(blogData);
 
 const client = new Client({
-    user: 'postgres',
-    host: 'localhost',
-    database: 'blogsite',
-    password: 'password',
-    port: 5432,
+    user: process.env.DB_USER,
+    host: process.env.DB_HOST,
+    database: process.env.DB_NAME,
+    port: process.env.DB_PORT,
 });
 
 const insertBlogPosts = async (blogData) => {
